@@ -4,7 +4,7 @@ A micro subset of Markdown.
 
 ## Differences with Markdown
 
-1. Markly only support paragraphs, non-nested unordered lists, bold text.
+1. Markly only support paragraphs, non-nested unordered lists, and bold text.
 2. Markly will always translate line breaks to `<br>` tags.  
 3. No support for embedding arbitrary HTML.
 
