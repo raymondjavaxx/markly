@@ -14,10 +14,11 @@ export default function render (nodes: TokenNode[]): string {
       break;
     case TokenNodeType.LIST:
       result.push("<ul>\n");
-      for (const child of node.children) {
-        result.push(`<li>${render([child])}</li>\n`);
-      }
+      result.push(render(node.children));
       result.push("</ul>\n");
+      break;
+    case TokenNodeType.LITM:
+      result.push(`<li>${render(node.children)}</li>\n`);
       break;
     case TokenNodeType.PARA:
       result.push(`<p>${render(node.children)}</p>\n`);
@@ -28,5 +29,5 @@ export default function render (nodes: TokenNode[]): string {
     }
   }
 
-  return result.join("").trim();
+  return result.join("");
 }

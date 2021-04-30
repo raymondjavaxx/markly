@@ -2,6 +2,7 @@ export enum TokenNodeType {
   ROOT = 0,
   PARA, // Paragraph
   LIST, // Unordered lists
+  LITM, // List item
   TEXT, // Text
   LNBR, // Line break
   BOLD, // Bold text

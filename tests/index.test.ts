@@ -18,7 +18,7 @@ describe("markly", function () {
       "Another <b>list</b>:\n" +
       "\n" +
       "- Item 1\n" +
-      "- Item 2\n" +
+      "- *Item* 2\n" +
       "- Item 3\n"
     );
 
@@ -35,7 +35,7 @@ describe("markly", function () {
       "<p>Another &lt;b&gt;list&lt;/b&gt;:</p>\n" +
       "<ul>\n" +
       "<li>Item 1</li>\n" +
-      "<li>Item 2</li>\n" +
+      "<li><strong>Item</strong> 2</li>\n" +
       "<li>Item 3</li>\n" +
       "</ul>"
     );

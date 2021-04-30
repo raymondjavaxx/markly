@@ -30,7 +30,7 @@ export default class Tokenizer {
 
       for (const line of lines) {
         listNode.append(
-          ...Tokenizer._parseLine(line.substr(2))
+          new TokenNode(TokenNodeType.LITM, null, Tokenizer._parseLine(line.substr(2)))
         );
       }
 
