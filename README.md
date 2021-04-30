@@ -2,6 +2,23 @@
 
 A micro subset of Markdown.
 
+## Installing
+
+Using npm:
+
+```shell
+$ npm i markly
+```
+
+## Usage
+
+```javascript
+import markly from "markly";
+
+const html = markly("*Hello*");
+// html -> "<p><strong>Hello</strong></p>"
+```
+
 ## Differences with Markdown
 
 1. Markly only support paragraphs, non-nested unordered lists, and bold text.
