@@ -1,10 +1,15 @@
 import render from "./render";
-import Tokenizer from "./Tokenizer";
+import Parser from "./Parser";
 
-const tokenizer = new Tokenizer();
+const parser = new Parser();
 
+/**
+ * Convert text to HTML.
+ * @param text - Markly formatted text.
+ * @returns HTML result.
+ */
 export default function markly(text: string): string {
-  const tree = tokenizer.tokenize(text);
-  const result = render(tree.children);
+  const ast = parser.parse(text);
+  const result = render(ast.children);
   return result.trim();
 }

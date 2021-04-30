@@ -1,21 +1,29 @@
 import Stack from "./Stack";
 import {TokenNode, TokenNodeType} from "./TokenNode";
 
-export default class Tokenizer {
+/**
+ * Markly parser.
+ */
+export default class Parser {
 
-  tokenize (text: string): TokenNode {
+  /**
+   * Parses Markly text into an AST.
+   * @param text - Markly text.
+   * @returns Parsed AST.
+   */
+  parse (text: string): TokenNode {
     const result = new TokenNode(TokenNodeType.ROOT);
 
-    const chunks = Tokenizer._extractChunks(text);
+    const chunks = Parser._extractChunks(text);
     for (const chunk of chunks) {
-      result.append(...Tokenizer._parseChunk(chunk));
+      result.append(...Parser._parseChunk(chunk));
     }
 
     return result;
   }
 
   private static _parseChunk (chunk: string): TokenNode[] {
-    const lines = Tokenizer._extractLines(chunk);
+    const lines = Parser._extractLines(chunk);
 
     const isList = (
       lines.length > 1 &&
@@ -30,7 +38,7 @@ export default class Tokenizer {
 
       for (const line of lines) {
         listNode.append(
-          new TokenNode(TokenNodeType.LITM, null, Tokenizer._parseLine(line.substr(2)))
+          new TokenNode(TokenNodeType.LITM, null, Parser._parseLine(line.substr(2)))
         );
       }
 
@@ -40,7 +48,7 @@ export default class Tokenizer {
     }
 
     const paragraphNode = new TokenNode(TokenNodeType.PARA);
-    paragraphNode.append(...Tokenizer._parseLine(chunk));
+    paragraphNode.append(...Parser._parseLine(chunk));
     return [
       paragraphNode
     ];
@@ -64,13 +72,13 @@ export default class Tokenizer {
 
           if (lastSegmentStart < start) {
             const text = line.substring(lastSegmentStart, start);
-            nodes.push(...Tokenizer._parseLineBreaks(text));
+            nodes.push(...Parser._parseLineBreaks(text));
           }
 
           const text = line.substring(start + 1, cursor);
 
           const boldNode = new TokenNode(TokenNodeType.BOLD);
-          boldNode.append(...Tokenizer._parseLineBreaks(text));
+          boldNode.append(...Parser._parseLineBreaks(text));
           nodes.push(boldNode);
 
           lastSegmentStart = cursor + 1;
@@ -82,7 +90,7 @@ export default class Tokenizer {
 
     if (lastSegmentStart < line.length) {
       const text = line.substring(lastSegmentStart, line.length);
-      nodes.push(...Tokenizer._parseLineBreaks(text));
+      nodes.push(...Parser._parseLineBreaks(text));
     }
 
     return nodes;

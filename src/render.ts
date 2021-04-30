@@ -1,6 +1,11 @@
 import { TokenNode, TokenNodeType } from "./TokenNode";
 import htmlSafe from "./htmlsafe";
 
+/**
+ * Converts Markly AST nodes into HTML.
+ * @param nodes
+ * @returns HTML string.
+ */
 export default function render (nodes: TokenNode[]): string {
   const result: string[] = [];
 

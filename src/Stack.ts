@@ -1,4 +1,6 @@
-
+/**
+ * Simple stack data structure.
+ */
 export default class Stack<Type> {
     private readonly items: Type[]
 
@@ -9,6 +11,7 @@ export default class Stack<Type> {
     push(item: Type): void {
       this.items.push(item);
     }
+
 
     pop(): Type | undefined {
       return this.items.pop();
