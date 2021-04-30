@@ -40,4 +40,9 @@ describe("markly", function () {
       "</ul>"
     );
   });
+
+  test("should preserve unmatched formatting tokens", function () {
+    expect(markly("Some text*")).toBe("<p>Some text*</p>");
+    expect(markly("*Some text**")).toBe("<p><strong>Some text</strong>*</p>");
+  });
 });

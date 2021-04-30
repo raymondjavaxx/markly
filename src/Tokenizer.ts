@@ -80,7 +80,7 @@ export default class Tokenizer {
       }
     }
 
-    if (lastSegmentStart < line.length - 1) {
+    if (lastSegmentStart < line.length) {
       const text = line.substring(lastSegmentStart, line.length);
       nodes.push(...Tokenizer._parseLineBreaks(text));
     }
