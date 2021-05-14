@@ -1,5 +1,5 @@
 import Stack from "./Stack";
-import {TokenNode, TokenNodeType} from "./TokenNode";
+import { TokenNode, TokenNodeType } from "./TokenNode";
 
 /**
  * Markly parser.

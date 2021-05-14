@@ -16,6 +16,10 @@ module.exports = {
   rules: {
     indent: ["error", 2],
     quotes: ["error", "double"],
-    semi: ["error", "always"]
+    semi: ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "lines-between-class-members": ["error", "always"],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }]
   }
 };

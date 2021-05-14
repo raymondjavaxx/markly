@@ -12,7 +12,6 @@ export default class Stack<Type> {
       this.items.push(item);
     }
 
-
     pop(): Type | undefined {
       return this.items.pop();
     }
