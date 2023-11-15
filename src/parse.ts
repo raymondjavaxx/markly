@@ -30,7 +30,7 @@ function parseChunk(chunk: string): TokenNode[] {
 
     for (const line of lines) {
       listNode.append(
-        new TokenNode(TokenNodeType.LITM, null, parseLine(line.substr(2)))
+        new TokenNode(TokenNodeType.LITM, null, parseLine(line.substring(2)))
       );
     }
 
