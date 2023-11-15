@@ -44,5 +44,16 @@ describe("markly", function () {
   test("should preserve unmatched formatting tokens", function () {
     expect(markly("Some text*")).toBe("<p>Some text*</p>");
     expect(markly("*Some text**")).toBe("<p><strong>Some text</strong>*</p>");
+    expect(markly("*Some *text*")).toBe("<p><strong>Some </strong>text*</p>");
+  });
+
+  test("lists should not require trailing line break", function () {
+    expect(markly("* One\n* Two\n* Three")).toBe(
+      "<ul>\n" +
+      "<li>One</li>\n" +
+      "<li>Two</li>\n" +
+      "<li>Three</li>\n" +
+      "</ul>"
+    );
   });
 });
