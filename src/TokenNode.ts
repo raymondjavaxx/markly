@@ -37,7 +37,7 @@ export class TokenNode {
    * @param content - Text content of the node.
    * @param children - List of children nodes.
    */
-  constructor (type: TokenNodeType, content?: string, children: TokenNode[] = []) {
+  constructor(type: TokenNodeType, content?: string, children: TokenNode[] = []) {
     this.type = type;
     this.content = content;
     this.children = children;
@@ -47,7 +47,7 @@ export class TokenNode {
    * Append one or more children nodes.
    * @param nodes - Token nodes to be appended.
    */
-  append (...nodes: TokenNode[]): void {
+  append(...nodes: TokenNode[]): void {
     nodes.forEach(node => this.children.push(node));
   }
 
