@@ -8,14 +8,13 @@ export enum TokenNodeType {
   LITM, // List item
   TEXT, // Text
   LNBR, // Line break
-  BOLD, // Bold text
+  BOLD // Bold text
 }
 
 /**
  * Token Node
  */
 export class TokenNode {
-
   /**
    * Type of the node.
    */
@@ -37,7 +36,11 @@ export class TokenNode {
    * @param content - Text content of the node.
    * @param children - List of children nodes.
    */
-  constructor(type: TokenNodeType, content?: string, children: TokenNode[] = []) {
+  constructor(
+    type: TokenNodeType,
+    content?: string,
+    children: TokenNode[] = []
+  ) {
     this.type = type;
     this.content = content;
     this.children = children;
@@ -48,7 +51,6 @@ export class TokenNode {
    * @param nodes - Token nodes to be appended.
    */
   append(...nodes: TokenNode[]): void {
-    nodes.forEach(node => this.children.push(node));
+    nodes.forEach((node) => this.children.push(node));
   }
-
 }

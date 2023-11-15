@@ -1,6 +1,6 @@
 const SPECIAL_HTML_CHARACTERS: Record<string, string> = {
   "&": "&amp;",
-  "\"": "&quot;",
+  '"': "&quot;",
   "'": "&apos;",
   "<": "&lt;",
   ">": "&gt;"

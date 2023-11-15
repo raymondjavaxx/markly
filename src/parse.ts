@@ -20,13 +20,10 @@ export default function parse(text: string): TokenNode {
 function parseChunk(chunk: string): TokenNode[] {
   const lines = extractLines(chunk);
 
-  const isList = (
+  const isList =
     lines.length > 1 &&
-    (
-      lines.every(line => line.startsWith("* ")) ||
-      lines.every(line => line.startsWith("- "))
-    )
-  );
+    (lines.every((line) => line.startsWith("* ")) ||
+      lines.every((line) => line.startsWith("- ")));
 
   if (isList) {
     const listNode = new TokenNode(TokenNodeType.LIST);
@@ -37,16 +34,12 @@ function parseChunk(chunk: string): TokenNode[] {
       );
     }
 
-    return [
-      listNode
-    ];
+    return [listNode];
   }
 
   const paragraphNode = new TokenNode(TokenNodeType.PARA);
   paragraphNode.append(...parseLine(chunk));
-  return [
-    paragraphNode
-  ];
+  return [paragraphNode];
 }
 
 function parseLine(line: string): TokenNode[] {
@@ -109,7 +102,7 @@ function parseLineBreaks(text: string): TokenNode[] {
 
 function extractLines(text: string): string[] {
   const lines = text.split("\n");
-  return lines.map(line => line.trim());
+  return lines.map((line) => line.trim());
 }
 
 function extractChunks(text: string): string[] {
